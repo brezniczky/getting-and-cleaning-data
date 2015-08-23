@@ -1,15 +1,8 @@
+# Please do not forget to set the working directory as described in 
+# the README before running this script.
 
-
-# setwd("E:/Coursera/Getting and cleaning data (for badge)/Course Project//getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset")
-
-# Notes for README
-# the data is expected to exist unzipped in the working directory
-# before running the script. The directory is supposed to contain 
-# the test and train subdirectories as well as activity_labels.txt,
-# features.txt etc.
-# 
-
-rm(list = ls())
+# clear the workspace?
+# rm(list = ls())
 
 # Expectations:
 #
@@ -77,7 +70,7 @@ grouped = group_by(full.with.subj, activity, subject)
 n.cols.to.calc = ncol(full.with.subj) - 2
 
 for(col in (1 : n.cols.to.calc)) {
-  summarised.col = summarise_(grouped, paste0("mean(`", colnames(full.with.subj)[col], "`)"))
+  summarised.col = summarise(grouped, paste0("mean(`", colnames(full.with.subj)[col], "`)"))
   if (col == 1) {
     tidy.data = summarised.col
   }
@@ -96,4 +89,3 @@ colnames(tidy.data) <-
 
 # output the file
 write.table(tidy.data, "tidy_data.txt", row.name = FALSE)
-
