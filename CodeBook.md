@@ -13,7 +13,7 @@ Processing the data results in a table saved as text (in _tidy_data.txt_) by _wr
 
 Column Name|Data Type|Description
 -----------|---------|-----------
-activity|Text|Activity name
+activity|Text|Activity name,  one of WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING (further described in the raw data archive).
 subject |Integer|Subject ID
 ...     |Numeric|Further columns contain means of original mean and standard deviation values, broken down by subject and activity ID.
 
